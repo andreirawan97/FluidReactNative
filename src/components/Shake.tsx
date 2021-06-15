@@ -7,37 +7,42 @@ import { FluidComponentProps } from '../types/globalTypes';
 import { InView } from '.';
 
 export default function Shake(props: FluidComponentProps) {
-  const { when = true, duration = TRANSLATE_SEQUENCE_DURATION } = props;
+  const {
+    when = true,
+    duration = TRANSLATE_SEQUENCE_DURATION,
+    hide = false,
+    onEndAnimation,
+  } = props;
 
   const [isInView, setIsInView] = useState(false);
 
   const shakeAnimVal = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    if (when && isInView) {
+    if (!hide && when && isInView) {
       Animated.sequence([
         Animated.timing(shakeAnimVal, {
-          toValue: 10,
+          toValue: 6,
           duration,
           useNativeDriver: true,
         }),
         Animated.timing(shakeAnimVal, {
-          toValue: -10,
+          toValue: -6,
           duration,
           useNativeDriver: true,
         }),
         Animated.timing(shakeAnimVal, {
-          toValue: 10,
+          toValue: 6,
           duration,
           useNativeDriver: true,
         }),
         Animated.timing(shakeAnimVal, {
-          toValue: -10,
+          toValue: -6,
           duration,
           useNativeDriver: true,
         }),
         Animated.timing(shakeAnimVal, {
-          toValue: 10,
+          toValue: 6,
           duration,
           useNativeDriver: true,
         }),
@@ -46,13 +51,13 @@ export default function Shake(props: FluidComponentProps) {
           duration,
           useNativeDriver: true,
         }),
-      ]).start();
+      ]).start(() => onEndAnimation && onEndAnimation());
     }
-  }, [shakeAnimVal, isInView, when, duration]);
+  }, [shakeAnimVal, isInView, when, duration, hide, onEndAnimation]);
 
   return (
     <>
-      {when && (
+      {!hide && (
         <InView onChange={setIsInView}>
           <Animated.View
             style={{

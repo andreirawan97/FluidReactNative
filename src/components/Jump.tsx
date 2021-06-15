@@ -7,14 +7,19 @@ import { TRANSLATE_SEQUENCE_DURATION } from '../constants/config';
 import { InView } from '.';
 
 export default function Jump(props: FluidComponentProps) {
-  const { when = true, duration = TRANSLATE_SEQUENCE_DURATION } = props;
+  const {
+    when = true,
+    duration = TRANSLATE_SEQUENCE_DURATION,
+    hide = false,
+    onEndAnimation,
+  } = props;
 
   const [isInView, setIsInView] = useState(false);
 
   const jumpAnimVal = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    if (when && isInView) {
+    if (!hide && when && isInView) {
       Animated.sequence([
         Animated.timing(jumpAnimVal, {
           toValue: -15,
@@ -46,13 +51,13 @@ export default function Jump(props: FluidComponentProps) {
           duration,
           useNativeDriver: true,
         }),
-      ]).start();
+      ]).start(() => onEndAnimation && onEndAnimation());
     }
-  }, [jumpAnimVal, isInView, when, duration]);
+  }, [jumpAnimVal, isInView, when, duration, hide, onEndAnimation]);
 
   return (
     <>
-      {when && (
+      {!hide && (
         <InView onChange={setIsInView}>
           <Animated.View
             style={{
