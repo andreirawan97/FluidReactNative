@@ -1,15 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 import { Fade, Jump, Shake } from './components';
 
 export default function App() {
-  const [showFadeAnim, setFadeAnim] = useState(false);
+  const [showFadeAnim, setShowFadeAnim] = useState(false);
+  const [showAnimatedError, setShowAnimatedError] = useState(false);
+  const [showAnimatedTextInput, setShowAnimatedTextInput] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
-      setFadeAnim(true);
+      setShowFadeAnim(true);
     }, 1000);
   }, []);
 
@@ -39,6 +47,39 @@ export default function App() {
         </Jump>
       </View>
 
+      <Fade hide>
+        <Text>I am hidden!</Text>
+      </Fade>
+
+      <View style={styles.row}>
+        <TouchableOpacity
+          style={styles.touchable}
+          onPress={() => setShowAnimatedError(true)}
+        >
+          <Text style={styles.touchableText}>Show error</Text>
+        </TouchableOpacity>
+
+        <Fade hide={!showAnimatedError}>
+          <Text style={styles.errorText}>Error occured!</Text>
+        </Fade>
+      </View>
+
+      <View style={styles.row}>
+        <TouchableOpacity
+          style={styles.touchable}
+          onPress={() => setShowAnimatedTextInput(true)}
+        >
+          <Text style={styles.touchableText}>Shake on demand</Text>
+        </TouchableOpacity>
+
+        <Shake
+          when={showAnimatedTextInput}
+          onEndAnimation={() => setShowAnimatedTextInput(false)}
+        >
+          <TextInput style={styles.textInput} />
+        </Shake>
+      </View>
+
       <StatusBar style={'auto'} />
     </View>
   );
@@ -61,5 +102,27 @@ const styles = StyleSheet.create({
   },
   timeoutUsageContainer: {
     marginVertical: 12,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  touchable: {
+    marginRight: 12,
+  },
+  touchableText: {
+    fontWeight: 'bold',
+    color: '#57abd2',
+  },
+  errorText: {
+    color: '#ef4135',
+  },
+  textInput: {
+    borderWidth: 1,
+    borderColor: 'silver',
+    borderRadius: 8,
+    padding: 4,
+    width: 180,
   },
 });
