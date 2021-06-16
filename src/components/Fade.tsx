@@ -8,25 +8,37 @@ import { InView } from '.';
 
 export default function Fade(props: FluidComponentProps) {
   const {
-    when = true,
+    when = false,
     duration = FADE_DURATION,
     hide = false,
     onEndAnimation,
   } = props;
 
   const [isInView, setIsInView] = useState(false);
+  const [shouldAnimate, setShouldAnimate] = useState(true);
 
   const fadeAnimVal = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    if (!hide && when && isInView) {
+    if (!hide && isInView && (when || shouldAnimate)) {
       Animated.timing(fadeAnimVal, {
         toValue: 1,
         duration,
         useNativeDriver: true,
-      }).start(() => onEndAnimation && onEndAnimation());
+      }).start(() => {
+        setShouldAnimate(false);
+        onEndAnimation && onEndAnimation();
+      });
     }
-  }, [fadeAnimVal, isInView, when, duration, hide, onEndAnimation]);
+  }, [
+    fadeAnimVal,
+    isInView,
+    when,
+    duration,
+    hide,
+    onEndAnimation,
+    shouldAnimate,
+  ]);
 
   return (
     <>

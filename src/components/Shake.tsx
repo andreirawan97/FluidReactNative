@@ -8,18 +8,19 @@ import { InView } from '.';
 
 export default function Shake(props: FluidComponentProps) {
   const {
-    when = true,
+    when = false,
     duration = TRANSLATE_SEQUENCE_DURATION,
     hide = false,
     onEndAnimation,
   } = props;
 
   const [isInView, setIsInView] = useState(false);
+  const [shouldAnimate, setShouldAnimate] = useState(true);
 
   const shakeAnimVal = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    if (!hide && when && isInView) {
+    if (!hide && isInView && (when || shouldAnimate)) {
       Animated.sequence([
         Animated.timing(shakeAnimVal, {
           toValue: 6,
@@ -51,9 +52,20 @@ export default function Shake(props: FluidComponentProps) {
           duration,
           useNativeDriver: true,
         }),
-      ]).start(() => onEndAnimation && onEndAnimation());
+      ]).start(() => {
+        setShouldAnimate(false);
+        onEndAnimation && onEndAnimation();
+      });
     }
-  }, [shakeAnimVal, isInView, when, duration, hide, onEndAnimation]);
+  }, [
+    shakeAnimVal,
+    isInView,
+    when,
+    duration,
+    hide,
+    onEndAnimation,
+    shouldAnimate,
+  ]);
 
   return (
     <>

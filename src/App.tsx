@@ -10,15 +10,26 @@ import {
 
 import { Fade, Jump, Shake } from './components';
 
+const STRESS_TEST_COUNT = 100;
+
 export default function App() {
   const [showFadeAnim, setShowFadeAnim] = useState(false);
   const [showAnimatedError, setShowAnimatedError] = useState(false);
   const [showAnimatedTextInput, setShowAnimatedTextInput] = useState(false);
+  const [showStressTest, setShowStressTest] = useState(false);
+  const [stressTestContent, setStressTestContent] = useState<Array<string>>([]);
 
   useEffect(() => {
+    let tmpStressTestContent: Array<string> = [];
+
     setTimeout(() => {
       setShowFadeAnim(true);
     }, 1000);
+
+    for (let i = 0; i < STRESS_TEST_COUNT; i++) {
+      tmpStressTestContent.push(`Content ${i + 1}`);
+    }
+    setStressTestContent(tmpStressTestContent);
   }, []);
 
   return (
@@ -80,7 +91,29 @@ export default function App() {
         </Shake>
       </View>
 
-      <StatusBar style={'auto'} />
+      <TouchableOpacity
+        style={styles.touchable}
+        onPress={() => setShowStressTest(true)}
+      >
+        <Text style={styles.touchableText}>Begin Stress Test</Text>
+      </TouchableOpacity>
+
+      {showStressTest &&
+        stressTestContent.map((content, i) => (
+          <View key={i} style={styles.usageContainer}>
+            <Shake>
+              <Text>{content}</Text>
+            </Shake>
+          </View>
+        ))}
+      {showStressTest &&
+        stressTestContent.map((content, i) => (
+          <View key={i} style={styles.usageContainer}>
+            <Fade>
+              <Text>{content}</Text>
+            </Fade>
+          </View>
+        ))}
     </View>
   );
 }
@@ -91,6 +124,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingVertical: 48,
   },
   helloFluid: {
     fontSize: 24,
