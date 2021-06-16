@@ -47,7 +47,6 @@
     "trailingComma": "all",
     "arrowParens": "always"
   },
-  "private": true,
   "name": "fluid-react-native",
   "author": "Andre Irawan <andreirawan.netlify.app>",
   "version": "1.0.0",
