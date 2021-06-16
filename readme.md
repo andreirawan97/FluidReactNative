@@ -1,5 +1,3 @@
-Note: This readme is not the final version.
-
 # Fluid
 
 What is Fluid? Fluid is a wrapper to animate your component.
