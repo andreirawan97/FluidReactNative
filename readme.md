@@ -4,6 +4,14 @@ Note: This readme is not the final version.
 
 What is Fluid? Fluid is a wrapper to animate your component.
 
+It can be as simple as:
+
+```javascript
+<Fade>
+  <Text>Fade on Mount!</Text>
+</Fade>
+```
+
 ## How to install?
 
 Simply run `yarn add fluid-react-native` or `npm install fluid-react-native`
