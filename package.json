@@ -50,5 +50,14 @@
   "private": true,
   "name": "fluid-react-native",
   "author": "Andre Irawan <andreirawan.netlify.app>",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "keywords": [
+    "fluid",
+    "react-native",
+    "animation"
+  ],
+  "repository": "https://github.com/andreirawan97/FluidReactNative",
+  "files": [
+    "src"
+  ]
 }
