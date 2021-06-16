@@ -48,5 +48,5 @@
     "arrowParens": "always"
   },
   "private": true,
-  "name": "FluidReactNative"
+  "name": "fluid-react-native"
 }
