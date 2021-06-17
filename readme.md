@@ -37,6 +37,8 @@ Those components can receive the following properties:
 | `duration` | No | `number` in ms | varies | The value may be vary depending on the component. `Fade` have default duration of 800 (fade in duration). `Shake` and `Jump` have default duration of 100 (delay between each translate). |
 | `onEndAnimation` | No | `() => void` | `null` | This function run when the animation is ended. You might want to combine it with `when` prop. |
 
+Fluid components use `InView` component to check if it is in view or not. For example, if your element is in the bottom part of your 1 meter `ScrollView`, the animation will not start until it is in view. You also can use this `InView` component by simply import it.
+
 You can look some example or usage in `src/App.tsx`.
 Or you can just clone the repo and run `yarn start`.
 
