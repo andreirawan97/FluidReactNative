@@ -33,9 +33,12 @@ Those components can receive the following properties:
 | --- | --- | --- | --- | --- |
 | `children` | Yes | `ReactNode` | - | Your element that you want to animate. Put it here. |
 | `when` | No | `boolean` | `false` | Set to true if you want to animate in on demand. |
-| `hide` | No | `boolean` | `false` | Set to true if you want to hide the children then set it to `false` to show and animate the children |
-| `duration` | No | `number` in ms | varies | The value may be vary depending on the component. `Fade` have default duration of 800 (fade in duration). `Shake` and `Jump` have default duration of 100 (delay between each translate) |
+| `hide` | No | `boolean` | `false` | Set to true if you want to hide the children then set it to `false` to show and animate the children. |
+| `duration` | No | `number` in ms | varies | The value may be vary depending on the component. `Fade` have default duration of 800 (fade in duration). `Shake` and `Jump` have default duration of 100 (delay between each translate). |
 | `onEndAnimation` | No | `() => void` | `null` | This function run when the animation is ended. You might want to combine it with `when` prop. |
+
+You can look some example or usage in `src/App.tsx`.
+Or you can just clone the repo and run `yarn start`.
 
 ## Epilogue
 
