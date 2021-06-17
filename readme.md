@@ -10,6 +10,9 @@ It can be as simple as:
 </Fade>
 ```
 
+![Kapture 2021-06-17 at 15 48 07](https://user-images.githubusercontent.com/25521515/122354372-1e3a5b00-cf7b-11eb-9c5a-1c4126d32c73.gif)
+
+
 ## How to install?
 
 Simply run `yarn add fluid-react-native` or `npm install fluid-react-native`
