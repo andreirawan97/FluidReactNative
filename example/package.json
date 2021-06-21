@@ -1,21 +1,22 @@
 {
-  "main": "lib/commonjs/index.js",
-  "module": "lib/module/index.js",
-  "react-native": "src/index.ts",
-  "types": "lib/typescript/index.d.ts",
-  "files": [
-    "/lib"
-  ],
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
     "typecheck": "tsc --noEmit -p .",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx}\"",
-    "lint": "eslint --max-warnings 0 \"src/**/*.{ts,tsx}\" --resolve-plugins-relative-to",
+    "lint": "eslint --max-warnings 0 \"src/**/*.{ts,tsx}\"",
     "jest": "jest --coverage --passWithNoTests",
     "test": "yarn lint && yarn typecheck && yarn format:check && yarn jest",
-    "build": "yarn bob build"
+    "eject": "expo eject"
   },
   "dependencies": {
+    "expo": "~40.0.0",
+    "expo-status-bar": "~1.0.3",
+    "fluid-react-native": "^1.0.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
@@ -24,17 +25,19 @@
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
+    "@babel/preset-typescript": "^7.14.5",
+    "@expo/webpack-config": "^0.12.77",
     "@types/jest": "^26.0.20",
     "@types/react": "~16.9.35",
     "@types/react-dom": "~16.9.8",
     "@types/react-native": "~0.63.2",
     "@types/react-test-renderer": "^17.0.0",
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.18.0",
     "eslint-config-kodefox": "^1.1.0",
     "jest": "^26.6.3",
     "jest-expo": "^40.0.2",
     "prettier": "^2.2.1",
-    "react-native-builder-bob": "^0.18.1",
     "react-native-testing-library": "^6.0.0",
     "react-test-renderer": "^17.0.1",
     "ts-jest": "^26.5.0",
@@ -48,22 +51,6 @@
     "trailingComma": "all",
     "arrowParens": "always"
   },
-  "name": "fluid-react-native",
-  "author": "Andre Irawan <andreirawan.netlify.app>",
-  "version": "1.0.4",
-  "keywords": [
-    "fluid",
-    "react-native",
-    "animation"
-  ],
-  "repository": "https://github.com/andreirawan97/FluidReactNative",
-  "react-native-builder-bob": {
-    "source": "src",
-    "output": "lib",
-    "targets": [
-      "commonjs",
-      "module",
-      "typescript"
-    ]
-  }
+  "name": "fluid-react-native-example",
+  "private": true
 }

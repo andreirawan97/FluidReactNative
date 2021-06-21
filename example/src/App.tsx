@@ -6,8 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-
-import { Fade, Jump, Shake } from './components';
+import { Fade, Jump, Shake } from 'fluid-react-native';
 
 const STRESS_TEST_COUNT = 100;
 

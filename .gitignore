@@ -1,4 +1,6 @@
+example/node_modules/**/*
 node_modules/**/*
+example/.expo/*
 .expo/*
 npm-debug.*
 *.jks
@@ -7,9 +9,14 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
+example/web-build/
 web-build/
 
 # macOS
 .DS_Store
 
 /coverage
+
+# generated files by bob
+lib/
+

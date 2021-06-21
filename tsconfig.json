@@ -1,17 +1,16 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react-native",
-    "target": "esnext",
+    "lib": ["esnext", "dom"],
     "module": "esnext",
-    "lib": ["dom", "esnext"],
+    "jsx": "react",
     "moduleResolution": "node",
-    "noEmit": true,
+    "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "downlevelIteration": true,
     "strict": true,
-    "noUncheckedIndexedAccess": true,
-    "forceConsistentCasingInFileNames": true
-  }
+    "noUnusedLocals": true,
+    "forceConsistentCasingInFileNames": true,
+    "downlevelIteration": true,
+    "types": ["react", "react-native", "jest"]
+  },
+  "exclude": ["example/", "lib/"]
 }
