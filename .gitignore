@@ -20,3 +20,6 @@ web-build/
 # generated files by bob
 lib/
 
+# local package publisher
+.local-pack/
+

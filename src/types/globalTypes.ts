@@ -7,3 +7,5 @@ export type FluidComponentProps = {
   duration?: number; // Duration of the animation in ms
   onEndAnimation?: () => void; // Called when the animation is over
 };
+
+export type BounceComponentProps = Omit<FluidComponentProps, 'duration'>;

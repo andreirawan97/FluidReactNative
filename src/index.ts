@@ -1,5 +1,5 @@
 // Fluid Components
-export { InView, Fade, Jump, Shake } from './components';
+export { InView, Fade, Jump, Shake, Bounce } from './components';
 
 // Type
-export { FluidComponentProps } from './types/globalTypes';
+export { FluidComponentProps, BounceComponentProps } from './types/globalTypes';
