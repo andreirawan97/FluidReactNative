@@ -13,7 +13,8 @@
     "lint": "eslint --max-warnings 0 \"src/**/*.{ts,tsx}\"",
     "jest": "jest --coverage --passWithNoTests",
     "test": "yarn lint && yarn typecheck && yarn format:check && yarn jest",
-    "build": "yarn bob build"
+    "build": "yarn bob build",
+    "release": "yarn build && npm release"
   },
   "dependencies": {
     "react": "16.13.1",
