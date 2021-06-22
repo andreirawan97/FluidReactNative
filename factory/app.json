@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Expo TypeScript",
-    "slug": "example-expo-ts",
+    "name": "Fluid React Native Example",
+    "slug": "fluid-react-native-example",
     "privacy": "unlisted",
     "version": "1.0.0",
     "orientation": "portrait",

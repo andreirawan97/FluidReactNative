@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { Fade, Jump, Shake } from 'fluid-react-native';
+
+import { Fade, Jump, Shake, Bounce } from './components';
 
 const STRESS_TEST_COUNT = 100;
 
@@ -43,6 +44,12 @@ export default function App() {
           <Text>I will appear 1 sec later!</Text>
         </View>
       </Fade>
+
+      <View style={styles.usageContainer}>
+        <Bounce>
+          <Text>I bounce!</Text>
+        </Bounce>
+      </View>
 
       <View style={styles.usageContainer}>
         <Shake>

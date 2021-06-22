@@ -1,0 +1,2 @@
+export const FADE_DURATION = 800;
+export const TRANSLATE_SEQUENCE_DURATION = 100;
