@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit -p .",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx}\"",
-    "lint": "eslint --max-warnings 0 \"src/**/*.{ts,tsx}\" --resolve-plugins-relative-to",
+    "lint": "eslint --max-warnings 0 \"src/**/*.{ts,tsx}\"",
     "jest": "jest --coverage --passWithNoTests",
     "test": "yarn lint && yarn typecheck && yarn format:check && yarn jest",
     "build": "yarn bob build"

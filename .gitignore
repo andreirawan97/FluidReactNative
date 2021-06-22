@@ -1,6 +1,6 @@
-example/node_modules/**/*
+factory/node_modules/**/*
 node_modules/**/*
-example/.expo/*
+factory/.expo/*
 .expo/*
 npm-debug.*
 *.jks
@@ -9,7 +9,7 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
-example/web-build/
+factory/web-build/
 web-build/
 
 # macOS
